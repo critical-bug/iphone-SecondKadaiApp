@@ -22,9 +22,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var onamaeField: UITextField!
     
-    func unwind(segue: UIStoryboardSegue) {
-        
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        // 他の画面から segue を使って戻ってきた時に呼ばれる
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let resultViewController: ResultViewController = segue.destination as! ResultViewController
+        resultViewController.onamae = onamaeField.text ?? "不明"
+    }
 }
 
